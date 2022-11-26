@@ -1,0 +1,128 @@
+<button
+    [attr.data-hide]="cardData.type != 'buttonCard'"
+    [attr.data-selected]="cardData.active"
+    class="card"
+    (click)="handlePilotsInformation()"
+>
+  <h3>{{cardData.spaceship.name}}</h3>
+  <img src="/assets/jet-fighter.svg" class="jetImage" />
+  <div class="informationSpaceship">
+    <div class="information">
+      <div class="icon">$</div>
+      <span>{{cardData.spaceship.cost_in_credits === "unknown" ? 0 : cardData.spaceship.cost_in_credits}}</span>
+    </div>
+    <div class="information">
+      <img src="/assets/pilot.svg" class="icon" />
+      <span>{{cardData.spaceship.pilots.length}}</span>
+    </div>
+  </div>
+</button>
+
+<div [attr.data-hide]="cardData.type != 'spaceshipInfoCard'" class="infoCard">
+  <div class="container" [attr.data-hide]="pilot != undefined">
+    <div class="manufacturer">
+        <img src="/assets/manufacturer.svg" class="iconManufacturer" />
+        <span>{{cardData.spaceship.manufacturer}}</span>
+    </div>
+    <div class="details">
+        <div class="firstDetails">
+            <div class="detailsSpaceship">
+                <span>Cargo Capacity</span>
+                <span>{{cardData.spaceship.cargo_capacity}}</span>
+            </div>
+            <div class="detailsSpaceship">
+                <span>Consumables</span>
+                <span>{{cardData.spaceship.consumables}}</span>
+            </div>
+            <div class="detailsSpaceship">
+                <span>Crew</span>
+                <span>{{cardData.spaceship.crew}}</span>
+            </div>
+            <div class="detailsSpaceship">
+                <span>Length</span>
+                <span>{{cardData.spaceship.length}}</span>
+            </div>
+        </div>
+        <div class="secondDetails">
+            <div class="detailsSpaceship">
+                <span>Max Atmosphering Speed</span>
+                <span>{{cardData.spaceship.max_atmosphering_speed}}</span>
+            </div>
+            <div class="detailsSpaceship">
+                <span>Model</span>
+                <span>{{cardData.spaceship.model}}</span>
+            </div>
+            <div class="detailsSpaceship">
+                <span>Passagers</span>
+                <span>{{cardData.spaceship.passengers}}</span>
+            </div>
+            <div class="detailsSpaceship">
+                <span>Vehicle Class</span>
+                <span>{{cardData.spaceship.vehicle_class}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="pilots" [attr.data-hide]="cardData.spaceship.pilots.length == 0">
+        <h3>Pilots</h3>
+        <div class="pilotsDetails">
+            <button *ngFor="let pilot of cardData.pilots; let i = index" class="cardPilots" (click)="handlePilotSelection(i)">
+                <img src="/assets/pilot.svg" class="iconPilot" />
+                <span>{{pilot.name}}</span>
+            </button>
+        </div>
+    </div>
+  </div>
+  <div class="container" [attr.data-hide]="pilot == undefined" >
+      <div class="cardPilot">
+        <div class="buttonBack">
+            <button (click)="handlePilotSelection(undefined)">
+                <img src="/assets/buttonBack.svg" class="icon"/>
+            </button>
+        </div>
+        <div class="pilotDetail">
+            <div class="pilotName">
+                <h2>{{pilotData.name}}</h2>
+                <div class="manufacturer">
+                    <img src="/assets/pilot.svg" class="iconManufacturer" />
+                </div>
+            </div>
+            <div class="details">
+                <div class="firstDetails">
+                    <div class="detailsSpaceship">
+                        <span>Birth Year</span>
+                        <span>{{pilotData.birth_year}}</span>
+                    </div>
+                    <div class="detailsSpaceship">
+                        <span>Eye Color</span>
+                        <span>{{pilotData.eye_color}}</span>
+                    </div>
+                    <div class="detailsSpaceship">
+                        <span>Gender</span>
+                        <span>{{pilotData.gender}}</span>
+                    </div>
+                    <div class="detailsSpaceship">
+                        <span>Hair Color</span>
+                        <span>{{pilotData.hair_color}}</span>
+                    </div>
+                </div>
+                <div class="secondDetails">
+                    <div class="detailsSpaceship">
+                        <span>Height</span>
+                        <span>{{pilotData.height}}</span>
+                    </div>
+                    <div class="detailsSpaceship">
+                        <span>Mass</span>
+                        <span>{{pilotData.mass}}</span>
+                    </div>
+                    <div class="detailsSpaceship">
+                        <span>Skin Color</span>
+                        <span>{{pilotData.skin_color}}</span>
+                    </div>
+                </div>
+        </div>
+
+
+    </div>
+  </div>
+
+</div>

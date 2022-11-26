@@ -1,0 +1,22 @@
+<div class="container">
+    <app-card-spaceship 
+        *ngFor="let card of cards; let i = index" 
+        [cardData]="card"
+        [cardIndex]="i"
+        [extend]="card.type == 'spaceshipInfoCard'"
+        (handleClickEvent)="insertCard($event)"
+    >
+    </app-card-spaceship>
+</div>
+
+
+
+<!-- <div *ngFor="let spaceship of allStarWarsSpaceship">
+    <div class="informationSpaceship">
+    </div>
+</div> -->
+
+
+<!-- <button (click)="handleNextPage(spaceship.name)">
+ {{spaceship.name}}
+</button> -->

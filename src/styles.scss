@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(111.34deg, #0C0B22 0%, #000000 100%);
+    color: #fff;
+    overflow: hidden;
+
+}
+
+button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+
+    color: #fff;
+}
