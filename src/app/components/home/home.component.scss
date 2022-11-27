@@ -17,7 +17,10 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-
     gap: 2rem;
+
+    @media (max-width: 650px) {
+        justify-content: center;
+    }
 }
 
